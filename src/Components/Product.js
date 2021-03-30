@@ -1,14 +1,21 @@
 import React from "react";
 import styled from "styled-components";
 
-function Product() {
+function Product({ title, price, rating, image, id }) {
   return (
     <Container>
-      <Title>Ipad pro</Title>
-      <Price>$1768</Price>
-      <Rating>⭐⭐⭐⭐⭐</Rating>
+      <Title>{title}</Title>
+      <Price>${price}</Price>
+      <Rating>
+        {Array(rating)
+          .fill()
+          .map((rating) => (
+            <span>⭐</span>
+          ))}
+      </Rating>
       <Image
-        src="https://images-na.ssl-images-amazon.com/images/I/81SGb5l%2BlZL._AC_SX342_.jpg"
+        // src="https://images-na.ssl-images-amazon.com/images/I/81SGb5l%2BlZL._AC_SX342_.jpg"
+        src={image}
         alt="Product image"
       />
       <ActionSection>
