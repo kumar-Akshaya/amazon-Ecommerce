@@ -66,6 +66,11 @@ const HeaderLogo = styled.div`
     width: 100px;
     margin-left: 11px;
   }
+
+  // border: 1px solid white;
+  // padding-top: 13px;
+  // padding-right: 10px;
+  // border-radius: 4px;
 `;
 
 const HeaderOptionAddress = styled.div`
@@ -132,4 +137,6 @@ const HeaderOptionCart = styled.div`
 
 const CartCount = styled.div`
   padding-left: 4px;
+  font-weight: 700;
+  color: #f08804;
 `;
