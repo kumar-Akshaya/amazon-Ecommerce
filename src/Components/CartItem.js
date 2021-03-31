@@ -1,13 +1,28 @@
 import React from "react";
 import styled from "styled-components";
 import NumberFormat from "react-number-format";
+import { db } from "../firebase";
 
 const CartItem = ({ id, item }) => {
   let options = [];
 
-  for (let i = 0; i < Math.max(item.quantity + 1, 10); i++) {
+  for (let i = 1; i <= Math.max(item.quantity + 1, 15); i++) {
     options.push(<option value={i}>Qty: {i}</option>);
   }
+
+  const onChangeQuantity = (value) => {
+    db.collection("cartItems")
+      .doc(id)
+      .update({
+        quantity: parseInt(value),
+      });
+  };
+
+  const deletItem = (e) => {
+    e.preventDefault();
+    db.collection("cartItems").doc(id).delete();
+  };
+
   return (
     <Container>
       <ImageContainer>
@@ -23,9 +38,16 @@ const CartItem = ({ id, item }) => {
         </CartItemInfoTop>
         <CartItemInfoBottom>
           <CartItemQuantityContainer>
-            <select value={item.quantity}>{options}</select>
+            <select
+              value={item.quantity}
+              onChange={(e) => onChangeQuantity(e.target.value)}
+            >
+              {options}
+            </select>
           </CartItemQuantityContainer>
-          <CartItemDeleteContainer>Delete</CartItemDeleteContainer>
+          <CartItemDeleteContainer onClick={(e) => deletItem(e)}>
+            Delete
+          </CartItemDeleteContainer>
         </CartItemInfoBottom>
       </CartItemInfo>
       <CartItemPrice>
@@ -96,6 +118,10 @@ const CartItemDeleteContainer = styled.div`
   color: #007185;
   margin-left: 16px;
   cursor: pointer;
+  font-weight: 600;
+  :hover {
+    font-weight: 700;
+  }
 `;
 
 const CartItemPrice = styled.div`
