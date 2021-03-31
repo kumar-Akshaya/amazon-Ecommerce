@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { db } from "../firebase";
+import NumberFormat from "react-number-format";
 
 function Product({ title, price, rating, image, id }) {
   const addTocart = () => {
@@ -24,7 +25,14 @@ function Product({ title, price, rating, image, id }) {
   return (
     <Container>
       <Title>{title}</Title>
-      <Price>${price}</Price>
+      <Price>
+        <NumberFormat
+          value={price}
+          displayType={"text"}
+          thousandSeparator={true}
+          prefix={"₹"}
+        />
+      </Price>
       <Rating>
         {Array(rating)
           .fill()

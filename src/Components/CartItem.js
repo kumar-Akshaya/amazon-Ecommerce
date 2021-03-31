@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import NumberFormat from "react-number-format";
 
 const CartItem = ({ id, item }) => {
   let options = [];
@@ -27,7 +28,14 @@ const CartItem = ({ id, item }) => {
           <CartItemDeleteContainer>Delete</CartItemDeleteContainer>
         </CartItemInfoBottom>
       </CartItemInfo>
-      <CartItemPrice>${item.price}</CartItemPrice>
+      <CartItemPrice>
+        <NumberFormat
+          value={item.price}
+          displayType={"text"}
+          thousandSeparator={true}
+          prefix={"₹"}
+        />
+      </CartItemPrice>
     </Container>
   );
 };
