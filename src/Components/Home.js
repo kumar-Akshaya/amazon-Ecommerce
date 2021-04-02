@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Product from "./Product";
+import BestSeller from "./BestSellerProduct";
 import { db } from "../firebase";
 
 function Home() {
@@ -35,6 +36,7 @@ function Home() {
           />
         ))}
       </Content>
+      <BestSeller />
     </Container>
   );
 }

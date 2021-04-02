@@ -26,11 +26,7 @@ const CartItem = ({ id, item }) => {
   return (
     <Container>
       <ImageContainer>
-        <img
-          // src="https://images-na.ssl-images-amazon.com/images/I/81SGb5l%2BlZL._AC_SX342_.jpg"
-          src={item.image}
-          alt="product image"
-        />
+        <img src={item.image} alt="product image" />
       </ImageContainer>
       <CartItemInfo>
         <CartItemInfoTop>

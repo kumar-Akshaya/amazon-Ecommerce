@@ -42,9 +42,6 @@ function App() {
           <Container>
             <Header user={user} cartItems={cartItems} signOutUser={signOut} />
             <Switch>
-              {/* <Route path="/login">
-            <Login setUser={setUser} />
-          </Route> */}
               <Route path="/cart">
                 <Cart cartItems={cartItems} />
               </Route>
