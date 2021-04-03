@@ -79,7 +79,9 @@ export default BestSellerProduct;
 
 const Container = styled.div``;
 
-const HeaderText = styled.h2``;
+const HeaderText = styled.h2`
+  padding-left: 20px;
+`;
 
 const ProductInfo = styled.div`
   display: flex;
@@ -95,12 +97,21 @@ const Content = styled.div`
   overflow-y: hidden;
   overflow-x: scroll;
   padding: 20px;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 const ProductImage = styled.img`
   object-fit: contain;
   max-height: 250px;
+  padding-bottom: 10px;
   transition: transform 450ms;
+
+  :hover {
+    transform: scale(1.08);
+  }
 `;
 
 const ItemInfo = styled.div`

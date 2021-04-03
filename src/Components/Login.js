@@ -9,7 +9,6 @@ function Login({ setUser }) {
       .signInWithPopup(provider)
       .then((result) => {
         let user = result.user;
-        console.log("user", user);
         let newUser = {
           name: user.displayName,
           email: user.email,
