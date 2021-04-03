@@ -7,7 +7,6 @@ function BestSellerProduct() {
   const [bestSellingProducts, setBestSellingProduct] = useState([]);
 
   const addTocart = (product) => {
-    console.log("productsss", product);
     const cartItem = db.collection("cartItems").doc(product.id);
     cartItem.get().then((doc) => {
       if (doc.exists) {
